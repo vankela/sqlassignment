@@ -1,0 +1,18 @@
+create table customer(customer_id int primary key not null,cust_name varchar(30) ,city varchar(30) not null,grade int ,salesman_id int );
+
+insert into customer values(3002,"nick Rimando","New York",90,5001),(3007,"Brad Davis","New York",200,5001),
+(3005,"Graham Zusi","California",200,5002),(3008,"Julian Green","London",300,5002),
+(3004,"Fabian Johnson","Paris",300,5006),(3009,"Geoff Cameron","Berlin",90,5003),
+(3003,"Jozy altidor","Moscow",200,5007),(3001,"Brad Guzank","London",null,5005);
+
+create table salesman(salesman_id int primary key not null,name varchar(30) not null,city varchar(30) not null,commission real not null);
+
+insert into salesman values(5001,"james Hoog","New York",0.15),(5002,"Nail Knite","paris",0.13),
+ (5005,"Pit Alex","London",0.11),(5006,"Mc Lyon","paris",0.14),(5007,"Paul Adam","Rome",0.13),(5003,"Lauseon Hen","San Jose",0.12);
+ 
+ 
+--  Write a SQL query to find those customers with a grade less than 100. It should return cust_name, customer city, grade, salesman, and salesman city. The result should be ordered by ascending customer_id.
+ 
+ select c.cust_name,c.city,grade,s.salesman_id,s.city from customer c,salesman s where grade<100 and c.salesman_id=s.salesman_id order by customer_id asc;
+ 
+
